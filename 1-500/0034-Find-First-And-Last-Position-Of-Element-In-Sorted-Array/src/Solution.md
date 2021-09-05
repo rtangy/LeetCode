@@ -1,0 +1,3 @@
+-  while(left <= right) 与 while(left < right) 写法的区别
+- while (left <= right) 在退出循环时 left = right + 1，即 right 在左，left 在右
+- while (left < right) 在退出循环时 left == right 成立

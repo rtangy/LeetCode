@@ -5,7 +5,7 @@ import java.util.Random;
  * 利用 快排的 partition 位置
  */
 public class Solution1 {
-    private static final Random random = new Random();
+    private static final Random random = new Random(System.currentTimeMillis());
 
     public int findKthLargest(int[] nums, int k) {
         return selectK(nums, 0, nums.length - 1, nums.length - k);

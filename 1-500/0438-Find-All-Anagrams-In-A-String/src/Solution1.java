@@ -4,48 +4,34 @@
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution1 {
     public List<Integer> findAnagrams(String s, String p) {
+        int sLen = s.length(),  pLen = p.length();
+        if (sLen < pLen) {
+            return new ArrayList<>();
+        }
         List<Integer> res = new ArrayList<>();
-        // 字符串 s 长度小于 p 长度的情况
-        if (s.length() < p.length()) {
-            return res;
-            s.toCharArray()
+        int[] sCount = new int[26];
+        int[] pCount = new int[26];
+        for (int i = 0; i < pLen; i++) {
+            pCount[p.charAt(i) - 'a']++;
+            sCount[s.charAt(i) - 'a']++;
         }
-        if (p.length() == 0) {
-            throw new IllegalArgumentException("Illegal parameter p.");
+        if (Arrays.equals(sCount,pCount)) {
+            res.add(0);
         }
-        // 填充字符串 p 出现的频次
-        int[] freqP = new int[26];
-        for (int i = 0;i < p.length();i++) {
-            freqP[p.charAt(i) - 'a']++;
-        }
-        int[] freqS = new int[26];
-        int l = 0;
-        int r = -1;
-        while (r + 1 < s.length()) {
-            r++;
-            freqS[s.charAt(r)-'a']++;
-            if (r - l + 1 > p.length()) {
-                freqS[s.charAt(l++) - 'a']--;
-            }
-            if (r - l + 1 == p.length() && same(freqS,freqP)) {
-                res.add(l);
+        for (int i = 0;i < sLen - pLen;i++) {
+            sCount[s.charAt(i) - 'a']--;
+            sCount[s.charAt(i + pLen) - 'a']++;
+            if (Arrays.equals(sCount,pCount)) {
+                res.add(i + 1);
             }
         }
         return res;
 
+    }
 
-    }
-    // 判断两数组频次是否完全相同
-    private boolean same(int[] freqS,int[] freqP) {
-        for (int i = 0;i < 26;i++) {
-            if (freqS[i] != freqP[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

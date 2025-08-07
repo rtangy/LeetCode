@@ -11,9 +11,6 @@ public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         int len = nums.length;
-        if (len < 3) {
-            return res;
-        }
         Arrays.sort(nums);
         for (int i = 0; i < len - 2; i++) {
             // 如果当前数字大于0，则三数之和一定大于0，所以结束循环
@@ -35,6 +32,8 @@ public class Solution {
                     while (l < r && nums[r] == nums[r - 1]) {
                         r--;
                     }
+                    l++;
+                    r--;
                 } else if (sum < 0) {
                     l++;
                 } else {
@@ -43,6 +42,5 @@ public class Solution {
             }
         }
         return res;
-
     }
 }

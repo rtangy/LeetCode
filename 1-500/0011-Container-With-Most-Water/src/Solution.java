@@ -13,8 +13,12 @@ public class Solution {
         int l = 0;
         int r = height.length - 1;
         while (l < r) {
-            int minHeight = height[l] < height[r] ? height[l++] : height[r--];
-            maxArea = Math.max(maxArea, (r - l + 1) * minHeight);
+            if (height[l] < height[r]) {
+                maxArea = Math.max(maxArea, (r - l) * height[l++]);
+            }else {
+                maxArea = Math.max(maxArea, (r - l) * height[l++]);
+            }
+
         }
         return maxArea;
 

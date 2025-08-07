@@ -1,5 +1,5 @@
 /**
- * 题解: https://leetcode.cn/problems/rotate-array/description/?envType=study-plan-v2&envId=top-100-liked
+ * 题解: chttps://leetcode.cn/problems/rotate-array/description/?envType=study-plan-v2&envId=top-100-liked
  */
 public class Solution1 {
     public void rotate(int[] nums, int k) {

@@ -1,3 +1,8 @@
+/**
+ * 1. 记录字符串 t 中各字符的数量
+ * 2. 从左到右遍历字符串 s 找到包含 t 的字符串
+ * 3. 缩小左区间找到最小子字符串
+ */
 public class Solution1 {
     public String minWindow(String s, String t) {
         int[] cntS = new int[128];

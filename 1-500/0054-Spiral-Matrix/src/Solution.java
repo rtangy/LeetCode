@@ -6,7 +6,7 @@ public class Solution {
         if (matrix.length == 0) {
             return new ArrayList<>();
         }
-        int l = 0,r = matrix[0].length - 1,t = 0,b = matrix.length - 1,x = 0;
+        int l = 0,r = matrix[0].length - 1,t = 0,b = matrix.length - 1;
         List<Integer> res = new ArrayList<>();
         while (true) {
             for (int i = l; i <= r; i++) {

@@ -42,4 +42,10 @@ public class Solution {
         // 没有找到环
         return false;
     }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[][] prerequisites = new int[][]{{0,1},{2,1},{3,2},{4,3},{2,4}};
+        boolean b = solution.canFinish(5, prerequisites);
+    }
 }
